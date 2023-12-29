@@ -25,17 +25,6 @@ def create_lawyer(request:schemas.LawyerSignUp,db:Session = Depends(database.get
     db.refresh(newLawyer)
     return newLawyer
 
-def post_lawyer_details(id,request:schemas.LawyerDetails,db:Session = Depends(database.get_db)):
-    lawyer_details=models.Lawyer_details(
-        competence=request.competence,
-        experience=request.experience,
-        domaine_de_pratique=request.domaine_de_pratique
-        lawyer_id=id
-    )
-    db.add(lawyer_details)
-    db.commit()
-    db.refresh(lawyer_details)
-    return lawyer_details
 
 
 
