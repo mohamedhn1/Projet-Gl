@@ -11,6 +11,9 @@ class LawyerSignUp(BaseModel):
     linkedin_profile :str
     wilaya:str
     password:str
+    class config():
+     orm_mode = True
+
 
 class LawyerDetails(BaseModel):
     competence:str

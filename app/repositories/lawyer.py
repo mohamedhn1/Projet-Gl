@@ -37,7 +37,6 @@ def create_lawyer(request:schemas.LawyerSignUp,db:Session = Depends(database.get
 
 
 
-
     """""
 
 def get_lawyer_details(id:int,db:Session = Depends(database.get_db)):
@@ -58,3 +57,17 @@ def get_lawyer_details(id:int,db:Session = Depends(database.get_db)):
 
 
 """
+
+def read_avocats(db: Session, skip: int = 0, limit: int = 10):
+    avocats = db.query(models.Lawyer).offset(skip).limit(limit).all()
+    return avocats
+def read_avocat(avocat_id: int, db: Session):
+    avocat = db.query(models.Lawyer).filter(models.Lawyer.id == avocat_id).first()
+    if avocat is None:
+        raise HTTPException(status_code=404, detail="Avocat non trouvé")
+    return avocat
+def read_avocatname(avocat_name: str, db: Session):
+    avocat = db.query(models.Lawyer).filter(models.Lawyer.name == avocat_name).first()
+    if avocat is None:
+        raise HTTPException(status_code=404, detail="Avocat non trouvé avec ce nom")
+    return avocat

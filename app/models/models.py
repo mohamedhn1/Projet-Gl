@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 class Lawyer(Base):
     __tablename__='lawyers'
     id=Column(Integer,primary_key=True,index=True,autoincrement=True)
-    name=Column(String)
+    name=Column(String ,index=True)
     email=Column(String,unique=True)    
     specialty = Column(String)
     phone_number = Column(String)
