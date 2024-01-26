@@ -2,8 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHAMY_DATA_BASE_URL='sqlite:///./app/database/mouhami.db'
-engine = create_engine(SQLALCHAMY_DATA_BASE_URL, connect_args={"check_same_thread":False})
+SQLALCHAMY_DATA_BASE_URL='mysql+pymysql://root@localhost:3306/dzmohami'
+engine = create_engine(SQLALCHAMY_DATA_BASE_URL)
 
 SessionLocal=sessionmaker(bind=engine,autocommit=False,autoflush=False,)
 

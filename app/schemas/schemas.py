@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import List
 
+
 class LawyerSignUp(BaseModel):
     name:str
     email:str  
@@ -11,16 +12,14 @@ class LawyerSignUp(BaseModel):
     linkedin_profile :str
     wilaya:str
     password:str
-    class config():
-     orm_mode = True
+    categories:list[str] = []
+    appointmentTimes:list[int] = []
 
 
-class LawyerDetails(BaseModel):
-    competence:str
-    experience:str
-    domaine_de_pratique:str
-    
-
+class UserSignUp(BaseModel):
+    name:str
+    email:str
+    password:str
 
 class login(BaseModel):
     email:str
