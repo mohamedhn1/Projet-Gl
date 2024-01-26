@@ -28,6 +28,11 @@ class Lawyer(Base):
     rate =Column(Float)
     appointments = relationship("Appointment", back_populates="lawyer", cascade="all, delete-orphan")
     rating = relationship("Rating",back_populates="lawyer", cascade="all, delete-orphan")
+    cordoneex=Column(Float)
+    cordoneey=Column(Float)
+
+
+    
 
 class Appointment(Base):
     __tablename__='appointment'
@@ -50,6 +55,7 @@ class Rating(Base):
     lawyer = relationship("Lawyer", back_populates="rating")
     user = relationship("User", back_populates="rating")
     comment = relationship("Comment", back_populates="rating", passive_deletes=True)
+
     
 class Comment(Base):
     __tablename__ = "comment"

@@ -21,6 +21,9 @@ def create_lawyer(request:schemas.LawyerSignUp,db:Session = Depends(database.get
                               wilaya=request.wilaya,
                               categories = request.categories,
                               password=request.password,
+                              cordoneex=request.cordoneex,
+                              cordoneey=request.cordoneey
+                              
                                                                                 )
     db.add(newLawyer)
     db.commit()

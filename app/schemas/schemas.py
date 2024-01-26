@@ -14,7 +14,8 @@ class LawyerSignUp(BaseModel):
     password:str
     categories:list[str] = []
     appointmentTimes:list[int] = []
-
+    cordoneex:int
+    cordoneey:int
 
 class UserSignUp(BaseModel):
     name:str
